@@ -17,7 +17,7 @@ def populate_news():
                             "ON articles.article_id = votes.article_id " +
                             "GROUP BY articles.url")
             for row in cursor.fetchall():
-                articles.append(row[0] + " " + str(row[2]))
+                articles.append(" ".join([row[0], str(row[2])]))
 
     return '<br/>'.join(articles)
 
