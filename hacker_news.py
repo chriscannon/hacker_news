@@ -7,11 +7,17 @@ app = Flask(__name__)
 @app.route("/")
 def populate_news():
     articles = []
-    with closing(MySQLdb.connect(host="localhost", user="root", passwd="", db="hacker_news")) as connection:
+    with closing(MySQLdb.connect(host="localhost", user="root", passwd="",
+                                 db="hacker_news")) as connection:
         with closing(connection.cursor()) as cursor:
-            cursor.execute("SELECT * FROM articles")
+            cursor.execute("SELECT articles.title, articles.url, " +
+                            "SUM(votes.vote) AS total_votes " +
+                            "FROM articles " +
+                            "INNER JOIN votes " +
+                            "ON articles.article_id = votes.article_id " +
+                            "GROUP BY articles.url")
             for row in cursor.fetchall():
-                articles.append(row[2])
+                articles.append(row[0] + " " + str(row[2]))
 
     return '<br/>'.join(articles)
 
