@@ -18,12 +18,12 @@ Supported Platform
 Requirements
 ------------
 
-Flask==0.9
-Jinja2==2.7
-MarkupSafe==0.18
-MySQL-python==1.2.4
-Werkzeug==0.8.3
-wsgiref==0.1.2
+    Flask==0.9
+    Jinja2==2.7
+    MarkupSafe==0.18
+    MySQL-python==1.2.4
+    Werkzeug==0.8.3
+    wsgiref==0.1.2
 
 How to Run
 -----------
