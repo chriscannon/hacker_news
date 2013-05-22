@@ -18,12 +18,17 @@ Supported Platform
 Requirements
 ------------
 
-* MySQL Server (brew install mysql)
-* Flask (sudo pip install flask)
-* mysql-python (sudo pip install mysql-python)
+Flask==0.9
+Jinja2==2.7
+MarkupSafe==0.18
+MySQL-python==1.2.4
+Werkzeug==0.8.3
+wsgiref==0.1.2
 
 How to Run
 -----------
+
     mysql.server start
     mysql -uroot < schema.sql
+    pip install -r requirements.txt
     python hacker_news.py
